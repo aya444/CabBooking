@@ -2,85 +2,123 @@ package com.example.demo.Application;
 
 import com.example.demo.Core.Client;
 import com.example.demo.Core.Driver;
+
+import java.util.List;
+
 import com.example.demo.Core.Admin;
 
-import com.example.demo.Application.UserManager;
+import com.example.demo.Core.User;
+import com.example.demo.Presistence.UserPresistence;
+import com.example.demo.Presistence.ArrayUserPresistence;
 
 public class UserManagerImpl implements UserManager{
 
-	@SuppressWarnings("unused")
-	public Admin loginAdmin(String name,String pass){
-        for(int i=0; i < adminArr.size(); i++){
-            if(name == adminArr.get(i).getName() && pass == adminArr.get(i).getPass()){
-                System.out.println("Driver Logged in Successfully!");
-            	System.out.println(clientsArr.get(i).toString());
-                return adminArr.get(i);
-            } else {
-            	System.out.println("Driver Login information is incorrect or not registered!");
-            }
-        	return adminArr.get(i);
-        }
-        return adminUser;
+    private UserPresistence presistence= new ArrayUserPresistence();
+
+    @Override
+    public boolean add(User user) {
+        user.setindex(presistence.getSize());
+        return presistence.add(user);
     }
-    
-    @SuppressWarnings("unused")
-    public Driver loginDriver(int mobile,String pass){
-        for(int i=0; i < approvedDriversArr.size(); i++){
-            if(mobile == approvedDriversArr.get(i).getMobile() && pass == approvedDriversArr.get(i).getPass()){
-                System.out.println("Driver Logged in Successfully!");
-            	System.out.println(approvedDriversArr.get(i).toString());
-                return approvedDriversArr.get(i);
-            } else {
-            	System.out.println("Driver Login information is incorrect or not registered!");
-            }
-        	return approvedDriversArr.get(i);
-        }
-        return driverUser;
+
+    @Override
+    public User get(int index) {
+        return presistence.get(index);
     }
-    
-    @SuppressWarnings("unused")
-    public Client loginClient(int mobile,String pass){
-        for(int i=0; i < clientsArr.size(); i++){
-            if(mobile == clientsArr.get(i).getMobile() && pass == clientsArr.get(i).getPass()){
+
+    @Override
+    public List<User> getAll() {
+        return presistence.getAll();
+    }
+
+    @Override
+    public boolean delete(int index) {
+        return presistence.delete(index);
+    }
+
+	public Admin loginAdmin(String type, String name,String pass){
+        for(int i=0; i < presistence.getSize(); i++){
+            if(type.equals("admin") && 
+            		name.equals(presistence.get(i).getName()) && 
+            		pass.equals(presistence.get(i).getPass())){
+                System.out.println("Admin Logged in Successfully!");
+            	System.out.println(presistence.get(i).toString());
+                return (Admin) presistence.get(i);
+            }
+        }
+        return null;
+    }
+
+    public Driver loginDriver(String type, int mobile,String pass){
+        for(int i=0; i < presistence.getSize(); i++){
+            if(type.equals("driver") && 
+            		mobile == presistence.get(i).getMobile() && 
+            		pass.equals(presistence.get(i).getPass())){
+                System.out.println("Driver Logged in Successfully!");
+            	System.out.println(presistence.get(i).toString());
+                return (Driver) presistence.get(i);
+            }
+        }
+        return null;
+    }
+
+    public Client loginClient(String type, int mobile,String pass){
+        System.out.println(presistence.getAll());
+        for(int i=0; i < presistence.getSize(); i++){
+            if(type.equals("client") &&
+            		mobile == presistence.get(i).getMobile() && 
+            		pass.equals(presistence.get(i).getPass())){
                 System.out.println("Client Logged in Successfully!");
-            	System.out.println(clientsArr.get(i).toString());
-                return clientsArr.get(i);
-            } else {
-            	System.out.println("Client Login information is incorrect or not registered!");
+            	System.out.println(presistence.get(i).toString());
+                return (Client) presistence.get(i);
             }
-        	return clientsArr.get(i);
         }
-        return clientUser;
+        return null;
     }
 
     public void registerAdmin(Admin adminUser){
-        adminArr.add(adminUser);
-//        System.out.println("Admin has been added & registered!");
+    	adminUser.setStatus("approved");
+        presistence.add(adminUser);
+       System.out.println("Admin has been added & registered!");
     }
-    
+
     public void registerDriver(Driver driverUser){
-    	pendingDriverArr.add(driverUser);
-        //driversArr.add(driverUser);
+    	driverUser.setStatus("pending");
+    	presistence.add(driverUser);
         System.out.println("Driver has been added & registered!");
     }
 
     public void registerClient(Client clientUser){
-        clientsArr.add(clientUser);
+    	clientUser.setStatus("approved");
+        presistence.add(clientUser);
         System.out.println("Client has been added & registered!");
     }
-    
+
     public void listDriversByAdmin(){
-    	for(int i=0; i < pendingDriverArr.size(); i++){
-    		System.out.println(pendingDriverArr.get(i));
+    	for(int i=0; i < presistence.getSize(); i++){
+    		System.out.println(presistence.get(i));
     	}
     }
     
+    public Driver selectDriverByAdmin(String name){
+    	for(int i=0; i < presistence.getSize(); i++){
+    		if(presistence.get(i).getName().equals(name)) {
+    			return (Driver) presistence.get(i);
+    		}
+    	}
+		return null;
+    }
+
     public Boolean verifyDriverByAdmin(Driver driverProfile){
-    	for(int i=0;i<pendingDriverArr.size();i++){
-    		System.out.println("Admin has approved (" + pendingDriverArr.get(i).getName() + ") ... !");
-    		approvedDriversArr.add(pendingDriverArr.get(i));
-    		pendingDriverArr.remove(i);
+    	for(int i=0;i<presistence.getSize();i++){
+    		if(presistence.get(i).getMobile() == driverProfile.getMobile()) {
+	    		driverProfile.setStatus("approved");
+	    		System.out.println("Admin has approved (" + driverProfile.getName() + ") ... !");
+	    		return true;
+    		}
+    		
     	}
     	return false;
     }
+
 }

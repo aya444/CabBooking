@@ -2,16 +2,13 @@ package com.example.demo.Core;
 
 import java.util.ArrayList;
 
-public class Client{
+public class Client extends User{
 
-	private String name;
-	private String address;
-	private String pass;
-	private int mobile;
-    Ride ride;
+	Ride ride;
     private ArrayList<Ride> AvailableRides = new ArrayList<Ride>();
 
-    public Client(String name, String address,String pass, int mobile){
+    public Client(String type, String name, String address,String pass, int mobile){
+        this.setType(type);
         this.setName(name);
         this.setAddress(address);
         this.setPass(pass);
@@ -19,59 +16,25 @@ public class Client{
         System.out.println("Client has been created");
     }
     
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getPass() {
-		return pass;
-	}
-
-	public void setPass(String pass) {
-		this.pass = pass;
-	}
-
-	public int getMobile() {
-		return mobile;
-	}
-
-	public void setMobile(int mobile) {
-		this.mobile = mobile;
-	}
+    public Client(String type, String status, String name, String address,String pass, int mobile){
+        this.setType(type);
+        this.setStatus(status);
+        this.setName(name);
+        this.setAddress(address);
+        this.setPass(pass);
+        this.setMobile(mobile);
+        System.out.println("Client has been created");
+    }
 	
     public void requestRide(String source, String destination)
     {
      	ride=new Ride(source,destination);
     }
 
-//    public boolean addClient(Client c){
-//        this.client.add(c);
-//        System.out.println("Client has been added Successfully!");
-//        return true;
-//    }
-//    public ArrayList<Ride> getAvailableRides(){
-//        return AvailableRides;
-//    }
-//    public Ride ChooseRide(){
-//        return ride;
-//    }
-
     public String toString(){
-        return "Client {" + "name='" + getName()
-        + ", address=" + getAddress() +", pass='"
-        + getPass()+ ", mobile=" + getMobile() + "}";
+        return "Client { type='" + getType() + "', status='" + getStatus() + "', name='" + getName()
+        + "', address='" + getAddress() +"', pass='"
+        + getPass()+ "', mobile=" + getMobile() + "}\n";
       }
 
 	public ArrayList<Ride> getAvailableRides() {

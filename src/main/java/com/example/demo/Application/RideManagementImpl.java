@@ -25,10 +25,10 @@ public class RideManagementImpl{
         System.out.println("new ride!");
 
     }
-    public void addToRideArea (Ride r,Driver d){
+    /*public void addToRideArea (Ride r,Driver d){
         d.getRideArea().add(r);
         //System.out.println(r.getSrcLocation());
-    }
+    }*/
     public void NotifyClient(){
         System.out.println("new ride!");
     }
