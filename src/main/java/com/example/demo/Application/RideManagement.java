@@ -6,6 +6,8 @@ import com.example.demo.Core.Ride;
 
 public interface RideManagement {
     public  boolean add(Ride ride);
+    public void setDistanceStrategy(DistanceStrategy strategy);
+	public DistanceStrategy getDistanceStrategy();
     public Ride get(int id);
     public void addoffer (double offer,int id);
     public List<Ride> getAll();

@@ -9,11 +9,20 @@ import com.example.demo.Core.Admin;
 
 import com.example.demo.Core.User;
 import com.example.demo.Presistence.UserPresistence;
-import com.example.demo.Presistence.ArrayUserPresistence;
 
 public class UserManagerImpl implements UserManager{
 
-    private UserPresistence presistence= new ArrayUserPresistence();
+    private UserPresistence presistence;
+
+    @Override
+    public void setUserPresistence(UserPresistence presistence) {
+        this.presistence=presistence;   
+    }
+
+    @Override
+    public UserPresistence getpresistence() {
+        return presistence;
+    }
 
     @Override
     public boolean add(User user) {

@@ -10,12 +10,40 @@ public class RideManagementImpl  implements RideManagement , Subject2 {
     private RideStorageManagement persistence = new RideStoreByArray();
     // TODO Creates a new Fav which re-writes old
     Subject FavServ= new FavAreaService();
+
+    private DistanceStrategy strategy;
+    double distance;
+    double time;
+    int counter=1;
+    int count=1;
+
     @Override
-    public  boolean add(Ride ride) 
-    {
-      Boolean flag= persistence.add(ride);
-       FavServ.notify(ride);
-       return flag;
+    public void setDistanceStrategy(DistanceStrategy strategy) {
+        this.strategy=strategy;    
+    }
+
+    @Override
+    public DistanceStrategy getDistanceStrategy() {
+        if(counter<=2){
+            counter++;
+            setDistanceStrategy(new GoogleAPI());
+        }   
+        else{
+            setDistanceStrategy(new Harvisine());
+        }
+        return strategy;
+    }
+
+    @Override
+    public  boolean add(Ride ride) {
+        count++;
+        Boolean flag= persistence.add(ride);
+        FavServ.notify(ride);
+        strategy=getDistanceStrategy();
+        distance=strategy.calculateDistance(ride.getSrcLocation(), ride.getDestLocation());
+        time=strategy.calculateETA(ride.getSrcLocation(), ride.getDestLocation());
+        System.out.println("Ride "+(count-1)+": Distance= "+distance +" , Time= "+ time);
+        return flag;
     }
 
     @Override

@@ -56,8 +56,6 @@ public class Ride {
         return price;
     }
 
-    
-
     public String toString(){
         return "Ride { "
         		+ "status='" + isStatus() + "'"

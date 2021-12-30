@@ -3,36 +3,34 @@ package com.example.demo.Presistence;
 import java.util.List;
 
 import com.example.demo.Core.User;
+import java.util.Collections;
 
-public class DbUserPresistence implements UserPresistence {
+public class DatabaseUserPresistence implements UserPresistence {
+
+    //Create Database
 
     @Override
     public int getSize() {
-        // TODO Auto-generated method stub
         return 0;
     }
 
     @Override
     public boolean add(User user) {
-        // TODO Auto-generated method stub
         return false;
     }
 
     @Override
     public User get(int index) {
-        // TODO Auto-generated method stub
         return null;
     }
 
     @Override
     public List<User> getAll() {
-        // TODO Auto-generated method stub
-        return null;
+        return Collections.emptyList();
     }
 
     @Override
     public boolean delete(int index) {
-        // TODO Auto-generated method stub
         return false;
     }
 

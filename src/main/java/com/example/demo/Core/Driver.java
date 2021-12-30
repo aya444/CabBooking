@@ -68,6 +68,7 @@ public class Driver extends User{
         return AvailableRides;
     }
 
+    // TODO Check Spelling>?
     public void addNoitification(String message)
     {
         Notifications.add(message);
