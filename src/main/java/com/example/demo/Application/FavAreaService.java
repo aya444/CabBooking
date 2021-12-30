@@ -53,13 +53,15 @@ public class FavAreaService implements Subject, IFavAreaService
   }
 
   @Override
-  public void notify(Ride ride)
+  public void notify(Ride ride, UserManagerImpl userManager)
   {
     for(int i=0; i<AllFavAreas.size() ; i++)
     { 
       if(ride.getSrcLocation() == AllFavAreas.get(i).getName())
         {
+          userManager.update(AllFavAreas.get(i).getSubscribers(), ride);
           AllFavAreas.get(i).sendNotification("New available ride in "+ride.getSrcLocation()+"!");
+        
         }
     }
   }

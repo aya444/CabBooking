@@ -32,10 +32,10 @@ public class RideManagementImpl  implements RideManagement , Subject2 {
     }
 
     @Override
-    public  boolean add(Ride ride, Subject favServ) {
+    public  boolean add(Ride ride, Subject favServ, UserManagerImpl userManager) {
         count++;
         Boolean flag= persistence.add(ride);
-        favServ.notify(ride);
+        favServ.notify(ride, userManager);
         strategy=getDistanceStrategy();
         distance=strategy.calculateDistance(ride.getSrcLocation(), ride.getDestLocation());
         time=strategy.calculateETA(ride.getSrcLocation(), ride.getDestLocation());

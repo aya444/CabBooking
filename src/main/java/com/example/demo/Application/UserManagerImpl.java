@@ -1,16 +1,26 @@
 package com.example.demo.Application;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.example.demo.Core.Client;
 import com.example.demo.Core.Driver;
+import com.example.demo.Core.Ride;
 import com.example.demo.Core.Admin;
 import com.example.demo.Core.User;
 import com.example.demo.Presistence.UserPresistence;
 
-public class UserManagerImpl implements UserManager{
+public class UserManagerImpl implements UserManager, Observer
+{
 
     private UserPresistence presistence;
+
+    @Override
+    public void update(ArrayList<Driver> subs, Ride r)
+    {
+      for(int i=0; i< subs.size(); i++)
+         subs.get(i).addAvailable(r);
+    }
 
     @Override
     public void setUserPresistence(UserPresistence presistence) {
@@ -127,5 +137,6 @@ public class UserManagerImpl implements UserManager{
     	}
     	return false;
     }
+
 
 }

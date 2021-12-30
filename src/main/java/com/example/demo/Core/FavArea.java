@@ -21,7 +21,10 @@ public class FavArea {
 
 	public void sendNotification(String notification) {
 		for (int i = 0; i < subscribers.size(); i++)
-			subscribers.get(i).addNoitification(notification);
+			{
+
+				subscribers.get(i).addNotification(notification);
+			}
 	}
 
 	public void removeSubscriber(Driver driver) {
@@ -30,6 +33,10 @@ public class FavArea {
 
 	public String toString() {
 		return "favArea { name='" + getName() + "'}";
+	}
+	public ArrayList<Driver> getSubscribers()
+	{
+		return subscribers;
 	}
 
 }

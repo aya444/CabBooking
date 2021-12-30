@@ -7,7 +7,7 @@ public class Ride {
     private String DestLocation;
     public ArrayList<Double> offers= new ArrayList<Double>();
     private double price= 0.00;
-    private int index= 0;
+    private int index= 1;
     private int rating= 0;
     private boolean status=false;
  
@@ -16,27 +16,42 @@ public class Ride {
         this.DestLocation="";
         this.SrcLocation="";
     }
-    public boolean isStatus() {
-        return status;
-    }
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
-    public int getRating() {
-        return rating;
-    }
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
-    public int getIndex() {
-        return index;
-    }
-    public void setIndex(int Index) {
-        this.index = Index;
-    }
+
     public Ride(String SrcLocation, String DestLocation){
         this.DestLocation=DestLocation;
         this.SrcLocation=SrcLocation;
+    }
+
+    public void addNewOffer(double newOffer){
+        offers.add(newOffer);
+    }
+
+    public ArrayList<Double> displayOffers(){
+        return offers;  
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int Index) {
+        this.index = Index;
     }
 
     public void setPrice(double price) {
@@ -47,12 +62,13 @@ public class Ride {
     {
         return SrcLocation;
     }
+
     public String getDestLocation ()
     {
         return DestLocation;
     }
-    public double getprice() {
 
+    public double getprice() {
         return price;
     }
 

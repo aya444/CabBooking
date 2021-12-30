@@ -46,8 +46,9 @@ public class RunAppQuick {
 
 		favserv.subscribe(selectedByAdmin, "dokki");
 		Ride r1 = new Ride("dokki", "zamalek");
-		rideManager.add(r1, favserv);
+		rideManager.add(r1, favserv,userManager);
 		System.out.println(r1.getSrcLocation() + " " + r1.getDestLocation());
 		selectedByAdmin.showNotifications();
+		selectedByAdmin.showAvailableRides();
 	}
 }

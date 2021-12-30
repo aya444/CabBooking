@@ -7,5 +7,5 @@ public interface Subject
 {
    public void subscribe(Driver driver, String fav);
    public void unsubscribe(Driver D, String Area);
-   public void notify(Ride ride);
+   public void notify(Ride ride, UserManagerImpl userManager);
 }

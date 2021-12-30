@@ -69,7 +69,7 @@ public class Driver extends User{
     }
 
     // TODO Check Spelling>?
-    public void addNoitification(String message)
+    public void addNotification(String message)
     {
         Notifications.add(message);
     }
@@ -79,6 +79,11 @@ public class Driver extends User{
         for(int i=0; i< Notifications.size(); i++)
             System.out.println( (i+1)+"- "+Notifications.get(i)+"\n");
         
+    }
+
+    public void showAvailableRides()
+    {
+        System.out.println("Available rides: "+AvailableRides);
     }
 
 }
