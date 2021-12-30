@@ -8,9 +8,6 @@ import com.example.demo.Presistence.RideStoreByArray;
 
 public class RideManagementImpl  implements RideManagement , Subject2 {
     private RideStorageManagement persistence = new RideStoreByArray();
-    // TODO Creates a new Fav which re-writes old
-    Subject FavServ= new FavAreaService();
-
     private DistanceStrategy strategy;
     double distance;
     double time;
@@ -35,10 +32,10 @@ public class RideManagementImpl  implements RideManagement , Subject2 {
     }
 
     @Override
-    public  boolean add(Ride ride) {
+    public  boolean add(Ride ride, Subject favServ) {
         count++;
         Boolean flag= persistence.add(ride);
-        FavServ.notify(ride);
+        favServ.notify(ride);
         strategy=getDistanceStrategy();
         distance=strategy.calculateDistance(ride.getSrcLocation(), ride.getDestLocation());
         time=strategy.calculateETA(ride.getSrcLocation(), ride.getDestLocation());
@@ -64,8 +61,6 @@ public class RideManagementImpl  implements RideManagement , Subject2 {
     }
  @Override
     public void addoffer(double offer,int index) {
-        //Ride ride=persistence.get(index);
-        //ride.offers.add(offer);
         persistence.addtoffer(offer,index);
     }
     

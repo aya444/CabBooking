@@ -2,7 +2,6 @@ package com.example.demo.Core;
 
 import java.util.ArrayList;
 
-//methods: getName, addSubscriber, sendNotification
 public class FavArea {
 	private String areaName;
 	private ArrayList<Driver> subscribers = new ArrayList<Driver>();
@@ -17,7 +16,7 @@ public class FavArea {
 
 	public void addSubscriber(Driver driver, String fav) {
 		subscribers.add(driver);
-		subscribers.get(subscribers.size() - 1).addToFav(fav); // add to favAreas list in driver
+		subscribers.get(subscribers.size() - 1).addToFav(fav);
 	}
 
 	public void sendNotification(String notification) {
@@ -30,7 +29,7 @@ public class FavArea {
 	}
 
 	public String toString() {
-		return "favArea { " + getName();
+		return "favArea { name='" + getName() + "'}";
 	}
 
 }

@@ -19,9 +19,6 @@ public class RunAppQuick {
 		Driver driver = new Driver("driver", "Ahmed Driver", "somewhere & may be 69870", "pass2&%ew", 156784569, 22222222, 3333333);
 		userManager.registerDriver(driver);
 		userManager.loginDriver("driver", 156784569, "pass2&%ew");
-		/*
-		 * driver.addToFav("dokki"); favserv.subscribe(driver); rideM.add("dokki", "zamalek");
-		 */
 
 		driver.showNotifications();
 
@@ -49,8 +46,8 @@ public class RunAppQuick {
 
 		favserv.subscribe(selectedByAdmin, "dokki");
 		Ride r1 = new Ride("dokki", "zamalek");
-		rideManager.add(r1);
+		rideManager.add(r1, favserv);
 		System.out.println(r1.getSrcLocation() + " " + r1.getDestLocation());
-		favserv.notify(r1);
+		selectedByAdmin.showNotifications();
 	}
 }

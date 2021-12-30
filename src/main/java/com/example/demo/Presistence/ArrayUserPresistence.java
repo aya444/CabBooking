@@ -42,4 +42,4 @@ public class ArrayUserPresistence implements UserPresistence {
         }
         return false;
     }
-}////////////////////////////////////////////Kolo
+}

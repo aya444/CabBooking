@@ -2,9 +2,6 @@ package com.example.demo.Core;
 
 public class Client extends User{
 
-	//Ride ride;
-    //private ArrayList<Ride> AvailableRides = new ArrayList<Ride>();
-
     public Client(String type, String name, String address,String pass, int mobile){
         this.setType(type);
         this.setName(name);
@@ -24,22 +21,10 @@ public class Client extends User{
         System.out.println("Client has been created");
     }
 	
-    /*public void requestRide(String source, String destination)
-    {
-     	ride=new Ride(source,destination);
-    }*/
-
     public String toString(){
         return "Client { type='" + getType() + "', status='" + getStatus() + "', name='" + getName()
         + "', address='" + getAddress() +"', pass='"
         + getPass()+ "', mobile=" + getMobile() + "}\n";
       }
 
-	/*public ArrayList<Ride> getAvailableRides() {
-		return AvailableRides;
-	}
-
-	public void setAvailableRides(ArrayList<Ride> availableRides) {
-		AvailableRides = availableRides;
-	}*/
 }

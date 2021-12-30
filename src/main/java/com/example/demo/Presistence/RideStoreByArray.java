@@ -11,10 +11,12 @@ import com.example.demo.Core.Ride;
 public class RideStoreByArray implements RideStorageManagement{
 	private static List<Ride> allRides = new ArrayList<Ride>();
     private static List<Ride> ridehistory = new ArrayList<Ride>();
+
     @Override
     public int getNextID() {
         return allRides.size();
     }
+
     @Override
     public  boolean add(Ride ride) {
         return allRides.add(ride);
@@ -27,13 +29,14 @@ public class RideStoreByArray implements RideStorageManagement{
                 return ride;
             }
         }
-
         return null;
     }
+
     @Override
     public void addtoffer (double offer,int index){
         allRides.get(index).offers.add(offer);
     }
+
     @Override
     public List<Ride> getAll() {
         return allRides;
@@ -49,6 +52,7 @@ public class RideStoreByArray implements RideStorageManagement{
 
         return false;
     }
+
     @Override
     public boolean addtohistory (int index) {
         for (Ride ride : allRides) {
@@ -64,6 +68,4 @@ public class RideStoreByArray implements RideStorageManagement{
     public List<Ride> getAllHistory() {
         return ridehistory;
     }
-
-	
 }

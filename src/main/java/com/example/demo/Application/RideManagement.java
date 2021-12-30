@@ -5,7 +5,7 @@ import com.example.demo.Core.Driver;
 import com.example.demo.Core.Ride;
 
 public interface RideManagement {
-    public  boolean add(Ride ride);
+    public  boolean add(Ride ride, Subject favServ);
     public void setDistanceStrategy(DistanceStrategy strategy);
 	public DistanceStrategy getDistanceStrategy();
     public Ride get(int id);
