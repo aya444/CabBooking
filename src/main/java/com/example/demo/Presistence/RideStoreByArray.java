@@ -1,51 +1,3 @@
-/*package com.example.demo.Presistence;
-
-import java.util.ArrayList;
-import java.util.List;
-import com.example.demo.Core.Ride;
-
-public class RideStoreByArray implements RideStorageManagement{
-	private static List<Ride> allRides = new ArrayList<>();
-    @Override
-    public int getSize() {
-        return allRides.size();
-    }
-    @Override
-    public  boolean add(Ride ride ) {
-        return allRides.add(ride);
-    }
-
-    @Override
-    public  Ride get(int index) {
-        for (Ride ride : allRides) {
-            if (ride.getIndex() == index) {
-                return ride;
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public List<Ride> getAll() {
-        return allRides;
-    }
-
-    @Override
-    public boolean delete(int id) {
-        for (Ride ride : allRides) {
-            if (ride.getIndex() == id) {
-                return allRides.remove(ride);
-            }
-        }
-
-        return false;
-    }
-
-
-	
-}*/
-
-
 package com.example.demo.Presistence;
 
 //import java.util.ArrayList;
@@ -78,16 +30,19 @@ public class RideStoreByArray implements RideStorageManagement{
 
         return null;
     }
-
+    @Override
+    public void addtoffer (double offer,int index){
+        allRides.get(index).offers.add(offer);
+    }
     @Override
     public List<Ride> getAll() {
         return allRides;
     }
 
     @Override
-    public boolean delete(int id) {
+    public boolean delete(int index) {
         for (Ride ride : allRides) {
-            if (ride.getIndex() == id) {
+            if (ride.getIndex() == index) {
                 return allRides.remove(ride);
             }
         }
@@ -95,9 +50,9 @@ public class RideStoreByArray implements RideStorageManagement{
         return false;
     }
     @Override
-    public boolean addtohistory (int id) {
+    public boolean addtohistory (int index) {
         for (Ride ride : allRides) {
-            if (ride.getIndex() == id) {
+            if (ride.getIndex() == index) {
                  ridehistory.add(ride);
                  return true;
             }

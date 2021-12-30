@@ -34,13 +34,13 @@ public class RideManagementImpl  implements RideManagement , Subject2 {
         persistence.delete(index);
         return false;
     }
-
-    @Override
+ @Override
     public void addoffer(double offer,int index) {
-        Ride ride=persistence.get(index);
-        ride.offers.add(offer);
+        //Ride ride=persistence.get(index);
+        //ride.offers.add(offer);
+        persistence.addtoffer(offer,index);
     }
-
+    
     @Override
     public void endRide(Driver driver ,int index) {
         Ride ride = persistence.get(index);
