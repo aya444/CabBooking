@@ -59,9 +59,9 @@ public class RideManagementImpl  implements RideManagement , Subject2 {
         persistence.delete(index);
         return false;
     }
- @Override
-    public void addoffer(double offer,int index) {
-        persistence.addtoffer(offer,index);
+    @Override
+    public void addoffer (Ride ride,double offer){
+        ride.addNewOffer(offer);
     }
     
     @Override

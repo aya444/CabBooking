@@ -9,7 +9,7 @@ public interface RideManagement {
     public void setDistanceStrategy(DistanceStrategy strategy);
 	public DistanceStrategy getDistanceStrategy();
     public Ride get(int id);
-    public void addoffer (double offer,int id);
+    public void addoffer (Ride ride,double offer);
     public List<Ride> getAll();
     public void endRide(Driver driver ,int id);
     public boolean delete(int id);

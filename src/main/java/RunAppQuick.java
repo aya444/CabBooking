@@ -44,11 +44,18 @@ public class RunAppQuick {
 		System.out.println(userManager.getAll());
 		System.out.println("********************************************");
 
-		favserv.subscribe(selectedByAdmin, "dokki");
+		/*favserv.subscribe(selectedByAdmin, "dokki");
 		Ride r1 = new Ride("dokki", "zamalek");
 		rideManager.add(r1, favserv,userManager);
 		System.out.println(r1.getSrcLocation() + " " + r1.getDestLocation());
 		selectedByAdmin.showNotifications();
-		selectedByAdmin.showAvailableRides();
+		selectedByAdmin.showAvailableRides();*/
+
+		Ride r2 = new Ride("dokki", "zamalek");
+		rideManager.addoffer(r2, 20.2);
+		rideManager.getAll();
+		r2.displayOffers();
+
+
 	}
 }

@@ -15,8 +15,6 @@ public interface RideStorageManagement {
     List<Ride> getAll();
 
     boolean delete(int id); 
-
-    public void addtoffer (double offer,int index);
     
     public boolean addtohistory (int id) ;
 

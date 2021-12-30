@@ -1,9 +1,5 @@
 package com.example.demo.Presistence;
 
-//import java.util.ArrayList;
-
-import com.example.demo.Presistence.RideStorageManagement;
-
 import java.util.ArrayList;
 import java.util.List;
 import com.example.demo.Core.Ride;
@@ -30,11 +26,6 @@ public class RideStoreByArray implements RideStorageManagement{
             }
         }
         return null;
-    }
-
-    @Override
-    public void addtoffer (double offer,int index){
-        allRides.get(index).offers.add(offer);
     }
 
     @Override

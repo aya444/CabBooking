@@ -21,13 +21,12 @@ public class Ride {
         this.DestLocation=DestLocation;
         this.SrcLocation=SrcLocation;
     }
-
     public void addNewOffer(double newOffer){
         offers.add(newOffer);
     }
 
-    public ArrayList<Double> displayOffers(){
-        return offers;  
+    public void displayOffers(){
+        System.out.println(offers);
     }
 
     public boolean isStatus() {
@@ -81,5 +80,5 @@ public class Ride {
         		+ ", sourceLocation='" + getSrcLocation() + "'"
         		+ ", destinationLocation='" + getDestLocation() +"'"
         		+ "}";
-      }
+    }
 }
