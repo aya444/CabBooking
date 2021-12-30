@@ -1,6 +1,5 @@
 package com.example.demo.Application;
 
-public interface IDriverService 
-{
-
+public interface Subject2 {
+    
 }

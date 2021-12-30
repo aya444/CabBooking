@@ -2,7 +2,9 @@ package com.example.demo.Core;
 
 import java.util.ArrayList;
 
-public class Client extends User{
+import com.example.demo.Application.Observer2;
+
+public class Client extends User {
 
 	Ride ride;
     private ArrayList<Ride> AvailableRides = new ArrayList<Ride>();

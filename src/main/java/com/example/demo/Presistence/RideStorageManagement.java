@@ -3,19 +3,21 @@ package com.example.demo.Presistence;
 import java.util.List;
 
 import com.example.demo.Core.Ride;
-import com.example.demo.Core.User;
 
 public interface RideStorageManagement {
     
-    public int getNextId();
+    public int getNextID();
 
-    public  boolean add(String source, String destination );
+    public  boolean add(Ride ride );
 
     Ride get(int id);
 
     List<Ride> getAll();
 
     boolean delete(int id);
-    //public default void SaveAs(User user){}
+
+    public boolean addtohistory (int id) ;
+
+    public List<Ride> getAllHistory();
 
 }

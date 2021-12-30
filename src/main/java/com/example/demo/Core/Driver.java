@@ -5,6 +5,11 @@ import java.util.ArrayList;
 public class Driver extends User{
 
 	ArrayList<String> FavAreas= new ArrayList<String>();
+    ArrayList<Ride> AvailableRides= new ArrayList<Ride>();
+    ArrayList<String> Notifications= new ArrayList<String>();
+    public double balance;
+
+
     public Driver(){
     }
 
@@ -52,5 +57,28 @@ public class Driver extends User{
       + getPass()+ "', mobile=" + getMobile()
       + "', ID='" + getId()+ "', license='" + getLicense()+ "}\n";
     }
+
+    public void addAvailable(Ride ride) 
+    {
+        AvailableRides.add(ride);
+    }
+
+    public ArrayList<Ride> getAvailableRides()
+    {
+        return AvailableRides;
+    }
+
+    public void addNoitification(String message)
+    {
+        Notifications.add(message);
+    }
+
+    public void showNotifications()
+    {
+        for(int i=0; i< Notifications.size(); i++)
+            System.out.println( (i+1)+"- "+Notifications.get(i)+"\n");
+        
+    }
+
 }
 

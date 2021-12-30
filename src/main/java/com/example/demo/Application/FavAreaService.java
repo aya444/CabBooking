@@ -4,23 +4,31 @@ import java.util.ArrayList;
 
 import com.example.demo.Core.Driver;
 import com.example.demo.Core.FavArea;
+import com.example.demo.Core.Ride;
 
 public class FavAreaService implements Subject, IFavAreaService 
 {
   private  ArrayList<FavArea> AllFavAreas= new ArrayList<FavArea>();
+ // IDriverService service=new DriverService();
 
   /*loop on all favorite areas, 
   if the passed area already exists, add the driver to it and return true*/
 
   @Override
-  public Boolean isExisting(Driver D)
+  public void addArea(FavArea newFav)
   {
-    int x= D.getFavAreas().size() -1;
+    AllFavAreas.add(newFav);
+    System.out.println("New Fav Area Added as [" + AllFavAreas + "] . !");
+  }
+
+  @Override
+  public Boolean isExisting(Driver D, String fav)
+  {
     for(int i=0; i< AllFavAreas.size(); i++)        
     {
-        if(D.getFavAreas().get(x)== AllFavAreas.get(i).getName())
+        if(fav== AllFavAreas.get(i).getName())
            {
-            AllFavAreas.get(i).addSubscriber(D);
+            AllFavAreas.get(i).addSubscriber(D,fav);
             return true;
             }
     }
@@ -28,13 +36,16 @@ public class FavAreaService implements Subject, IFavAreaService
   }
 
   @Override
-  public void subscribe(Driver driver)
+  public void subscribe(Driver driver, String fav)
   {
-    int x= driver.getFavAreas().size() -1;
-      if (isExisting(driver)== false)
+    System.out.println("hello subs out of if cond");
+      if (isExisting(driver, fav)== false)
        {
-          FavArea FA= new FavArea(driver.getFavAreas().get(x));
-          FA.addSubscriber(driver);
+
+          FavArea FA= new FavArea(fav);
+          FA.addSubscriber(driver, fav);
+          addArea(FA);
+          // System.out.println("this is faveArea "+AllFavAreas);
        }   
   }
 
@@ -45,6 +56,35 @@ public class FavAreaService implements Subject, IFavAreaService
     {
         if(Area== AllFavAreas.get(i).getName())
            AllFavAreas.get(i).removeSubscriber(D);
+    }
+  }
+
+  @Override
+  public void notify(Ride ride)
+  {
+    
+     System.out.println(" notify "+AllFavAreas);
+     System.out.println("notify before for");
+    for(int i=0; i<AllFavAreas.size() ; i++)
+    {
+      System.out.println("notify in for");
+      
+      if(ride.getSrcLocation() == AllFavAreas.get(i).getName())
+        {
+          System.out.println("notify in if");
+
+          AllFavAreas.get(i).sendNotification("New available ride in "+ride.getSrcLocation()+"!");
+        }
+    }
+  }
+  
+
+
+  public void showAllFavs()
+  {
+    for(int i=0; i<AllFavAreas.size(); i++)
+    {
+      System.out.println(AllFavAreas.get(i)+" ");
     }
   }
 }

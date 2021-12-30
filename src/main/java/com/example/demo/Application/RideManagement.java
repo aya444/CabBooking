@@ -1,15 +1,15 @@
 package com.example.demo.Application;
-//hello
 import java.util.List;
 
 import com.example.demo.Core.Driver;
 import com.example.demo.Core.Ride;
 
 public interface RideManagement {
-    //Ride ride= new Ride();
-    public  boolean add(String source, String destination );
+    public  boolean add(Ride ride);
     public Ride get(int id);
+    public void addoffer (double offer,int id);
     public List<Ride> getAll();
-    boolean delete(int id);
-
+    public void endRide(Driver driver ,int id);
+    public boolean delete(int id);
+    public List<Ride> getAllHistory();
 }

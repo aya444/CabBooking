@@ -1,20 +1,38 @@
 package com.example.demo.Core;
+
+import java.util.ArrayList;
+
 public class Ride {
     private String SrcLocation;
     private String DestLocation;
+    public ArrayList<Double> offers= new ArrayList<Double>();
     private double price= 0.00;
-    private int id= 0;
-    //hello
+    private int index= 0;
+    private int rating= 0;
+    private boolean status=false;
+ 
 
     public Ride(){
         this.DestLocation="";
         this.SrcLocation="";
     }
-    public int getId() {
-        return id;
+    public boolean isStatus() {
+        return status;
     }
-    public void setId(int id) {
-        this.id = id;
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+    public int getRating() {
+        return rating;
+    }
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+    public int getIndex() {
+        return index;
+    }
+    public void setIndex(int Index) {
+        this.index = Index;
     }
     public Ride(String SrcLocation, String DestLocation){
         this.DestLocation=DestLocation;
@@ -37,4 +55,17 @@ public class Ride {
 
         return price;
     }
+
+    
+
+    public String toString(){
+        return "Ride { "
+        		+ "status='" + isStatus() + "'"
+                + ", rating='" + getRating() + "'"
+        		+ ", Index='" + getIndex() + "'"
+        		+ ", offerPrice='" + getprice() + "'"
+        		+ ", sourceLocation='" + getSrcLocation() + "'"
+        		+ ", destinationLocation='" + getDestLocation() +"'"
+        		+ "}";
+      }
 }
