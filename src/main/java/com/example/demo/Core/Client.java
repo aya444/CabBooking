@@ -20,7 +20,14 @@ public class Client extends User{
         this.setMobile(mobile);
         System.out.println("Client has been created");
     }
-	
+
+/*
+    public void sendNotification(String str)
+    {
+        System.out.println(str);
+    }
+*/
+    
     public String toString(){
         return "Client { type='" + getType() + "', status='" + getStatus() + "', name='" + getName()
         + "', address='" + getAddress() +"', pass='"

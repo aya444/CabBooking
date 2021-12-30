@@ -133,4 +133,8 @@ public abstract class User {
     public void setLicense(int license) {
 		this.license = license;
 	}
+
+    public void setNotification(String message) {
+        System.out.println(message);
+    }
 }

@@ -10,6 +10,7 @@ public class Ride {
     private int index= 1;
     private int rating= 0;
     private boolean status=false;
+    User client;
  
 
     public Ride(){
@@ -21,7 +22,25 @@ public class Ride {
         this.DestLocation=DestLocation;
         this.SrcLocation=SrcLocation;
     }
-    public void addNewOffer(double newOffer){
+
+    public Ride(String SrcLocation, String DestLocation,Client cl){
+        this.DestLocation=DestLocation;
+        this.SrcLocation=SrcLocation;
+        client=cl;
+    }
+
+    public void setClient(User c)
+    {
+        client= c;
+    }
+
+    public User getClient()
+    {
+        return client;
+    }
+
+    public void addNewOffer(double newOffer)
+    {
         offers.add(newOffer);
     }
 
@@ -81,4 +100,6 @@ public class Ride {
         		+ ", destinationLocation='" + getDestLocation() +"'"
         		+ "}";
     }
+
+
 }

@@ -1,12 +1,15 @@
 package com.example.demo.Application;
 import java.util.List;
 
+import com.example.demo.Core.Client;
 import com.example.demo.Core.Driver;
 import com.example.demo.Core.Ride;
+import com.example.demo.Core.User;
 import com.example.demo.Presistence.RideStorageManagement;
 import com.example.demo.Presistence.RideStoreByArray;
 
-public class RideManagementImpl  implements RideManagement , Subject2 {
+public class RideManagementImpl  implements RideManagement , Subject2 
+{
     private RideStorageManagement persistence = new RideStoreByArray();
     private DistanceStrategy strategy;
     double distance;
@@ -15,7 +18,16 @@ public class RideManagementImpl  implements RideManagement , Subject2 {
     int count=1;
 
     @Override
-    public void setDistanceStrategy(DistanceStrategy strategy) {
+    public void subscribe(User c, Ride r)
+    {
+     r.setClient(c);
+    //  r=new Ride(r.getSrcLocation(),r.getDestLocation(),c);
+    
+    }
+
+    @Override
+    public void setDistanceStrategy(DistanceStrategy strategy) 
+    {
         this.strategy=strategy;    
     }
 
@@ -31,10 +43,19 @@ public class RideManagementImpl  implements RideManagement , Subject2 {
         return strategy;
     }
 
+    //  @Override
+    //  public void createRide(String source, String dest, Client client) 
+    //  {
+    //       Ride r2 = new Ride (source, dest,client);
+    //       add(ride, user, subject favServ, userManagerImpl userManager)
+    //  }
+
     @Override
-    public  boolean add(Ride ride, Subject favServ, UserManagerImpl userManager) {
+    public  boolean add(Ride ride,User c ,Subject favServ, UserManagerImpl userManager) 
+    {
         count++;
         Boolean flag= persistence.add(ride);
+        subscribe(c, ride);
         favServ.notify(ride, userManager);
         strategy=getDistanceStrategy();
         distance=strategy.calculateDistance(ride.getSrcLocation(), ride.getDestLocation());
@@ -62,6 +83,8 @@ public class RideManagementImpl  implements RideManagement , Subject2 {
     @Override
     public void addoffer (Ride ride,double offer){
         ride.addNewOffer(offer);
+        notifyClient(ride);
+
     }
     
     @Override
@@ -77,4 +100,11 @@ public class RideManagementImpl  implements RideManagement , Subject2 {
     public List<Ride> getAllHistory() {
         return persistence.getAllHistory();
     }
+
+    @Override
+    public void notifyClient(Ride ride)
+    {
+       ride.getClient().setNotification("New offer has been added!");
+    }
+   
 }

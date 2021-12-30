@@ -50,12 +50,17 @@ public class RunAppQuick {
 		System.out.println(r1.getSrcLocation() + " " + r1.getDestLocation());
 		selectedByAdmin.showNotifications();
 		selectedByAdmin.showAvailableRides();*/
+       
+		//client enters dokki, zamalek
+
+
+	//	rideManager.createRide(client, r2);
+
 
 		Ride r2 = new Ride("dokki", "zamalek");
+		rideManager.subscribe(client, r2);
+		System.out.println(r2.getClient());
 		rideManager.addoffer(r2, 20.2);
-		rideManager.getAll();
-		r2.displayOffers();
-
-
+	
 	}
 }
