@@ -3,10 +3,10 @@ import com.cab.booking.model.Client;
 import com.cab.booking.model.Driver;
 import com.cab.booking.model.Ride;
 import com.cab.booking.service.FavAreaSubjectManager;
-import com.cab.booking.services.impl.ArrayUserPresistenceImpl;
-import com.cab.booking.services.impl.FavAreaManagerImpl;
-import com.cab.booking.services.impl.RideManagerImpl;
-import com.cab.booking.services.impl.UserManagerImpl;
+import com.cab.booking.service.impl.ArrayUserPresistenceImpl;
+import com.cab.booking.service.impl.FavAreaManagerImpl;
+import com.cab.booking.service.impl.RideManagerImpl;
+import com.cab.booking.service.impl.UserManagerImpl;
 
 public class RunAppQuick {
 	public static void main(String[] args) {

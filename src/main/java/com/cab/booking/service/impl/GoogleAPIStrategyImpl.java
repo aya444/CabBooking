@@ -1,4 +1,4 @@
-package com.cab.booking.services.impl;
+package com.cab.booking.service.impl;
 
 import com.cab.booking.service.DistanceStrategyManager;
 

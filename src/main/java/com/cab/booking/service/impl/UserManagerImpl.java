@@ -1,4 +1,4 @@
-package com.cab.booking.services.impl;
+package com.cab.booking.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;

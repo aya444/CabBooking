@@ -4,7 +4,7 @@ import java.util.List;
 import com.cab.booking.model.Driver;
 import com.cab.booking.model.Ride;
 import com.cab.booking.model.User;
-import com.cab.booking.services.impl.UserManagerImpl;
+import com.cab.booking.service.impl.UserManagerImpl;
 
 public interface RideManager {
     public boolean add(Ride ride,User c ,FavAreaSubjectManager favServ, UserManagerImpl userManager) ;

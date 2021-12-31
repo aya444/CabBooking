@@ -2,7 +2,7 @@ package com.cab.booking.service;
 
 import com.cab.booking.model.Driver;
 import com.cab.booking.model.Ride;
-import com.cab.booking.services.impl.UserManagerImpl;
+import com.cab.booking.service.impl.UserManagerImpl;
 
 public interface FavAreaSubjectManager 
 {
