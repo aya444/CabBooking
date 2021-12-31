@@ -6,7 +6,7 @@ import com.cab.booking.model.Ride;
 
 public interface RidePresistenceManager {
     
-    public int getNextID();
+    public int getSize();
 
     public  boolean add(Ride ride );
 
@@ -16,7 +16,7 @@ public interface RidePresistenceManager {
 
     boolean delete(int id); 
     
-    public boolean addtohistory (int id) ;
+    public void addtohistory (Ride ride) ;
 
     public List<Ride> getAllHistory();
 

@@ -11,11 +11,10 @@ public class Ride {
     private int rating= 0;
     private boolean status=false;
     User client;
+    User driver;
  
-
     public Ride(){
-        this.DestLocation="";
-        this.SrcLocation="";
+
     }
 
     public Ride(String SrcLocation, String DestLocation){
@@ -37,6 +36,16 @@ public class Ride {
     public User getClient()
     {
         return client;
+    }
+    
+    public void setDriver(User d)
+    {
+        driver= d;
+    }
+
+    public User getDriver()
+    {
+        return driver;
     }
 
     public void addNewOffer(double newOffer)

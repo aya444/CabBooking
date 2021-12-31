@@ -11,27 +11,28 @@ public class Driver extends User{
 
 
     public Driver(){
+    	
     }
 
-    public Driver(String type, String name, String address,String pass, int mobile,int ID,int license){
+    public Driver(String type, String name, String address,String pass, int mobile,int nationalId,int license){
     	this.setType(type);
         this.setName(name);
         this.setAddress(address);
         this.setPass(pass);
         this.setMobile(mobile);
-        this.setId(ID);
+        this.setNationalId(nationalId);
         this.setLicense(license);
         System.out.println("Driver has been created");
     }
     
-    public Driver(String type, String status, String name, String address,String pass, int mobile,int ID,int license){
+    public Driver(String type, String status, String name, String address,String pass, int mobile,int nationalId,int license){
     	this.setType(type);
         this.setStatus(status);
         this.setName(name);
         this.setAddress(address);
         this.setPass(pass);
         this.setMobile(mobile);
-        this.setId(ID);
+        this.setNationalId(nationalId);
         this.setLicense(license);
         System.out.println("Driver has been created");
     }
@@ -40,12 +41,15 @@ public class Driver extends User{
     {
         FavAreas.add(FavArea);
     }
-
-    /*public void SetOffer(int i, double offer){
-        Ride r=RideArea.get(i);
-        r.setPrice(offer);
-        RideArea.set(i,r);
-    }*/
+    
+    public void setBalance(double balance) 
+    {
+       this.balance=balance;
+    }
+    public double getBalance() 
+    {
+       return balance;
+    }
     
     public ArrayList<String> getFavAreas(){
         return FavAreas;
@@ -55,7 +59,7 @@ public class Driver extends User{
       return "Driver { type='" + getType() + "', status='" + getStatus() + "', name='" + getName()
        + "', address='" + getAddress() +"', pass='"
       + getPass()+ "', mobile=" + getMobile()
-      + "', ID='" + getId()+ "', license='" + getLicense()+ "}\n";
+      + "', ID='" + getNationalId()+ "', license='" + getLicense()+ "}\n";
     }
 
     public void addAvailable(Ride ride) 

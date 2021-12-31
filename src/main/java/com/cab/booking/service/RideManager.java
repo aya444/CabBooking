@@ -13,7 +13,7 @@ public interface RideManager {
     public Ride get(int id);
     public void addoffer (Ride ride, double offer);
     public List<Ride> getAll();
-    public void endRide(Driver driver, int id);
+    public void endRide(Ride ride);
     public boolean delete(int id);
     public List<Ride> getAllHistory();
    // public void createRide(String source, String dest, Client client);

@@ -11,7 +11,7 @@ public class ArrayRidePresistenceImpl implements RidePresistenceManager{
     private static List<Ride> ridehistory = new ArrayList<Ride>();
 
     @Override
-    public int getNextID() {
+    public int getSize() {
         return allRides.size();
     }
 
@@ -47,14 +47,8 @@ public class ArrayRidePresistenceImpl implements RidePresistenceManager{
     }
 
     @Override
-    public boolean addtohistory (int index) {
-        for (Ride ride : allRides) {
-            if (ride.getIndex() == index) {
-                 ridehistory.add(ride);
-                 return true;
-            }
-    }
-        return false;
+    public void addtohistory (Ride ride) {
+    	ridehistory.add(ride);
     }
 
     @Override

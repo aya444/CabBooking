@@ -8,14 +8,15 @@ import com.cab.booking.model.Driver;
 import com.cab.booking.model.User;
 
 public interface UserManager {
-	Admin adminUser = null;
-    Client clientUser = null;
-	Driver driverUser = null;
     public void setUserPresistence(UserPresistenceManager presistence);
 	public UserPresistenceManager getpresistence();
     boolean add(User user);
     User get(int index);
     List<User> getAll();
     boolean delete(int index);
-
+	User login(User user);
+	boolean register(User user);
+	void listDriversByAdmin();
+	User selectDriverByAdmin(User user);
+	boolean verifyDriverByAdmin(User user);
 }

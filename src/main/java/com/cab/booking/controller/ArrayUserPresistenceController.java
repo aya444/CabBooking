@@ -1,4 +1,4 @@
-package com.cab.booking.service.impl;
+package com.cab.booking.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import com.cab.booking.model.User;
 import com.cab.booking.service.UserPresistenceManager;
 
-public class ArrayUserPresistenceImpl implements UserPresistenceManager {
+public class ArrayUserPresistenceController implements UserPresistenceManager {
     private static ArrayList<User> allkindofUsers = new ArrayList<>();
 
     @Override

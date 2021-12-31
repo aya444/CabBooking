@@ -2,6 +2,10 @@ package com.cab.booking.model;
 
 public class Admin extends User{
 
+    public Admin(){
+    	
+    }
+    
     public Admin(String type, String name, String pass){
     	this.setType(type);
 		this.setName(name);

@@ -1,7 +1,6 @@
-package com.cab.booking.service.impl;
+package com.cab.booking.controller;
 import java.util.List;
 
-import com.cab.booking.model.Client;
 import com.cab.booking.model.Driver;
 import com.cab.booking.model.Ride;
 import com.cab.booking.model.User;
@@ -10,8 +9,12 @@ import com.cab.booking.service.FavAreaSubjectManager;
 import com.cab.booking.service.RideManager;
 import com.cab.booking.service.RidePresistenceManager;
 import com.cab.booking.service.RideSubjectManager;
+import com.cab.booking.service.impl.ArrayRidePresistenceImpl;
+import com.cab.booking.service.impl.GoogleAPIStrategyImpl;
+import com.cab.booking.service.impl.HarvisineStrategyImpl;
+import com.cab.booking.service.impl.UserManagerImpl;
 
-public class RideManagerImpl  implements RideManager , RideSubjectManager 
+public class RideManagerController  implements RideManager , RideSubjectManager 
 {
     private RidePresistenceManager persistence = new ArrayRidePresistenceImpl();
     private DistanceStrategyManager strategy;
@@ -25,6 +28,8 @@ public class RideManagerImpl  implements RideManager , RideSubjectManager
     public void subscribe(User c, Ride r)
     {
      r.setClient(c);
+    //  r=new Ride(r.getSrcLocation(),r.getDestLocation(),c);
+    
     }
 
     @Override
@@ -44,6 +49,13 @@ public class RideManagerImpl  implements RideManager , RideSubjectManager
         }
         return strategy;
     }
+
+    //  @Override
+    //  public void createRide(String source, String dest, Client client) 
+    //  {
+    //       Ride r2 = new Ride (source, dest,client);
+    //       add(ride, user, subject favServ, userManagerImpl userManager)
+    //  }
 
     @Override
     public  boolean add(Ride ride,User c ,FavAreaSubjectManager favServ, UserManagerImpl userManager) 
@@ -83,13 +95,14 @@ public class RideManagerImpl  implements RideManager , RideSubjectManager
     }
     
     @Override
-    public void endRide(Ride ride) {
-        Driver driver=(Driver) ride.getDriver();
+	public void endRide(Ride ride) {
+    	Driver driver=(Driver) ride.getDriver();
         ride.setStatus(false);
         double balance =driver.getBalance();
         driver.setBalance(balance+=ride.getprice());
         persistence.addtohistory(ride);
-    }
+		
+	}
 
     @Override
     public List<Ride> getAllHistory() {
@@ -101,5 +114,6 @@ public class RideManagerImpl  implements RideManager , RideSubjectManager
     {
        ride.getClient().setNotification("New offer has been added!");
     }
-   
+
+	
 }
