@@ -1,4 +1,4 @@
-package com.cab.booking.services;
+package com.cab.booking.service;
 
 import com.cab.booking.model.Ride;
 import com.cab.booking.model.User;

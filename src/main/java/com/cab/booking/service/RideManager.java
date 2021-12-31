@@ -1,4 +1,4 @@
-package com.cab.booking.services;
+package com.cab.booking.service;
 import java.util.List;
 
 import com.cab.booking.model.Driver;

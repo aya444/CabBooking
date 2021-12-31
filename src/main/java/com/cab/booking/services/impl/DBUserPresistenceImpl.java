@@ -3,7 +3,7 @@ package com.cab.booking.services.impl;
 import java.util.List;
 
 import com.cab.booking.model.User;
-import com.cab.booking.services.UserPresistenceManager;
+import com.cab.booking.service.UserPresistenceManager;
 
 import java.util.Collections;
 

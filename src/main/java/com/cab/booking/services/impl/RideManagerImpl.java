@@ -5,11 +5,11 @@ import com.cab.booking.model.Client;
 import com.cab.booking.model.Driver;
 import com.cab.booking.model.Ride;
 import com.cab.booking.model.User;
-import com.cab.booking.services.DistanceStrategyManager;
-import com.cab.booking.services.RideManager;
-import com.cab.booking.services.RidePresistenceManager;
-import com.cab.booking.services.FavAreaSubjectManager;
-import com.cab.booking.services.RideSubjectManager;
+import com.cab.booking.service.DistanceStrategyManager;
+import com.cab.booking.service.FavAreaSubjectManager;
+import com.cab.booking.service.RideManager;
+import com.cab.booking.service.RidePresistenceManager;
+import com.cab.booking.service.RideSubjectManager;
 
 public class RideManagerImpl  implements RideManager , RideSubjectManager 
 {

@@ -8,9 +8,9 @@ import com.cab.booking.model.Client;
 import com.cab.booking.model.Driver;
 import com.cab.booking.model.Ride;
 import com.cab.booking.model.User;
-import com.cab.booking.services.FavAreaObserverManager;
-import com.cab.booking.services.UserManager;
-import com.cab.booking.services.UserPresistenceManager;
+import com.cab.booking.service.FavAreaObserverManager;
+import com.cab.booking.service.UserManager;
+import com.cab.booking.service.UserPresistenceManager;
 
 public class UserManagerImpl implements UserManager, FavAreaObserverManager
 {

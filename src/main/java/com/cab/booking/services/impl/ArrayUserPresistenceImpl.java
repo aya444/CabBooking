@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.cab.booking.model.User;
-import com.cab.booking.services.UserPresistenceManager;
+import com.cab.booking.service.UserPresistenceManager;
 
 public class ArrayUserPresistenceImpl implements UserPresistenceManager {
     private static ArrayList<User> allkindofUsers = new ArrayList<>();

@@ -2,7 +2,7 @@ import com.cab.booking.model.Admin;
 import com.cab.booking.model.Client;
 import com.cab.booking.model.Driver;
 import com.cab.booking.model.Ride;
-import com.cab.booking.services.FavAreaSubjectManager;
+import com.cab.booking.service.FavAreaSubjectManager;
 import com.cab.booking.services.impl.ArrayUserPresistenceImpl;
 import com.cab.booking.services.impl.FavAreaManagerImpl;
 import com.cab.booking.services.impl.RideManagerImpl;

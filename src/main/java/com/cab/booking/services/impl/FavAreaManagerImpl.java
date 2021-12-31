@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import com.cab.booking.model.Driver;
 import com.cab.booking.model.FavArea;
 import com.cab.booking.model.Ride;
-import com.cab.booking.services.FavAreaManager;
-import com.cab.booking.services.FavAreaSubjectManager;
+import com.cab.booking.service.FavAreaManager;
+import com.cab.booking.service.FavAreaSubjectManager;
 
 public class FavAreaManagerImpl implements FavAreaSubjectManager, FavAreaManager 
 {

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.cab.booking.model.Ride;
-import com.cab.booking.services.RidePresistenceManager;
+import com.cab.booking.service.RidePresistenceManager;
 
 public class ArrayRidePresistenceImpl implements RidePresistenceManager{
 	private static List<Ride> allRides = new ArrayList<Ride>();

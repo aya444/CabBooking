@@ -1,6 +1,6 @@
 package com.cab.booking.services.impl;
 
-import com.cab.booking.services.DistanceStrategyManager;
+import com.cab.booking.service.DistanceStrategyManager;
 
 public class HarvisineStrategyImpl implements DistanceStrategyManager{
 
