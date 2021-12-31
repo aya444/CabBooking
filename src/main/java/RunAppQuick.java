@@ -1,20 +1,20 @@
-import com.example.demo.Application.FavAreaService;
-import com.example.demo.Application.RideManagementImpl;
-import com.example.demo.Application.Subject;
-import com.example.demo.Application.UserManagerImpl;
-import com.example.demo.Core.Admin;
-import com.example.demo.Core.Client;
-import com.example.demo.Core.Driver;
-import com.example.demo.Core.Ride;
-import com.example.demo.Presistence.ArrayUserPresistence;
+import com.cab.booking.model.Admin;
+import com.cab.booking.model.Client;
+import com.cab.booking.model.Driver;
+import com.cab.booking.model.Ride;
+import com.cab.booking.services.FavAreaSubjectManager;
+import com.cab.booking.services.impl.ArrayUserPresistenceImpl;
+import com.cab.booking.services.impl.FavAreaManagerImpl;
+import com.cab.booking.services.impl.RideManagerImpl;
+import com.cab.booking.services.impl.UserManagerImpl;
 
 public class RunAppQuick {
 	public static void main(String[] args) {
 
 		UserManagerImpl userManager = new UserManagerImpl();
-		RideManagementImpl rideManager = new RideManagementImpl();
-		Subject favserv = new FavAreaService();
-		userManager.setUserPresistence(new ArrayUserPresistence());
+		RideManagerImpl rideManager = new RideManagerImpl();
+		FavAreaSubjectManager favserv = new FavAreaManagerImpl();
+		userManager.setUserPresistence(new ArrayUserPresistenceImpl());
 		// Run Driver Registration and Login
 		Driver driver = new Driver("driver", "Ahmed Driver", "somewhere & may be 69870", "pass2&%ew", 156784569, 22222222, 3333333);
 		userManager.registerDriver(driver);
